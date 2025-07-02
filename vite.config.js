@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/scientlabs/", // <-- add this line
+  base: "/scient-labs/", // <-- add this line
 });
