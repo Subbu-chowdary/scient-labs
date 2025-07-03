@@ -291,8 +291,8 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { motion, useAnimation } from "framer-motion";
 import Section from "./Section"; // Adjust the import based on your project
-import logo1 from "../assets/sci-logo1.png";
-import etsiLogo from "../assets/etsi.png";
+import logo1 from "../assets/ScientLabs_Finalized_Logo_V1.3.png";
+import etsiLogo from "../assets/ETS-MEMBER-Logo.jpg";
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -374,19 +374,19 @@ const SparklesCore = ({
 
 const Home = () => {
   return (
-    <Section id="home" bgColor="bg-black" className="text-white">
+    <Section id="home" bgColor="bg-black" className="text-white h-screen">
       {/* Logos Row */}
       <div className="absolute top-0 left-0 w-full px-4 py-4 z-50">
-        <div className="flex items-center justify-start gap-6 sm:gap-10">
+        <div className="flex items-center justify-between gap-6 sm:gap-10">
           <img
             src={logo1}
             alt="Scient Labs Logo"
-            className="h-16 sm:h-20 md:h-24 object-contain"
+            className="h-16 sm:h-20 md:h-16 object-contain"
           />
           <img
             src={etsiLogo}
             alt="ETSI Member Logo"
-            className="h-16 sm:h-20 md:h-24 object-contain"
+            className="h-16 sm:h-20 md:h-16 object-contain"
           />
         </div>
       </div>
@@ -428,6 +428,15 @@ const Home = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const target = document.getElementById("about");
+              if (target) {
+                window.scrollTo({
+                  top: target.offsetTop - 50, // Optional offset for fixed header
+                  behavior: "smooth",
+                });
+              }
+            }}
             className="mt-8 bg-white text-blue-600 font-semibold py-3 px-8 rounded-full text-lg shadow-lg"
           >
             Discover More

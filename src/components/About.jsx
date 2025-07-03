@@ -198,13 +198,15 @@
 // ];
 
 // export default About;
-
+// About.jsx
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useTransform, useScroll, useSpring } from "framer-motion";
-import Section from "./Section"; // ✅ Adjust path as needed
-import { Color } from "three";
+import Section from "./Section";
+import towerImg from "../assets/tower.jpeg";
+import img5G from "../assets/5G.jpeg";
+import cloud from "../assets/cloud.png";
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -305,7 +307,12 @@ const TracingBeam = ({ children, className }) => {
 
 const About = () => {
   return (
-    <Section id="about" title="About" bgColor="bg-black" className="text-white">
+    <Section
+      id="about"
+      title="About Us"
+      bgColor="bg-black"
+      className="text-white"
+    >
       <div className="w-full bg-gradient-to-b from-black to-gray-900 text-white">
         <TracingBeam>
           <div className="flex flex-col gap-2">
@@ -314,18 +321,18 @@ const About = () => {
                 key={`content-${index}`}
                 className="min-h-[70vh] flex flex-col justify-center px-2 sm:px-4 md:px-6"
               >
-                <h2 className="bg-blue-600 text-white rounded-full text-sm w-fit px-2 py-1 mb-1">
+                <h2 className="bg-blue-600 text-white rounded-full text-sm w-fit px-3 py-1 mb-2">
                   {item.badge}
                 </h2>
-                <p className="text-xl md:text-2xl font-semibold mb-1">
+                <p className="text-2xl md:text-3xl font-semibold mb-2">
                   {item.title}
                 </p>
-                <div className="text-base md:text-lg prose prose-invert max-w-full">
+                <div className="text-base md:text-lg leading-relaxed prose prose-invert max-w-full text-justify">
                   {item.image && (
                     <img
                       src={item.image}
                       alt="thumbnail"
-                      className="rounded-lg mb-2 object-cover w-full h-auto max-h-[300px] md:max-h-[400px]"
+                      className="rounded-lg mb-4 object-cover w-full h-auto max-h-[320px] md:max-h-[420px]"
                     />
                   )}
                   {item.description}
@@ -334,10 +341,9 @@ const About = () => {
             ))}
           </div>
 
-          {/* ✅ Company Info Section */}
-
-          <div className="overflow-x-auto w-full mt-4">
-            <table className="w-full table-auto border border-gray-700 text-left text-sm md:text-base">
+          {/* ✅ Company Info Table */}
+          <div className="overflow-x-auto w-full mt-6 text-[15px] md:text-base">
+            <table className="w-full table-auto border border-gray-700 text-left">
               <tbody>
                 <tr className="border-b border-gray-700">
                   <th className="py-2 px-4 font-medium">Name</th>
@@ -345,7 +351,7 @@ const About = () => {
                 </tr>
                 <tr className="border-b border-gray-700">
                   <th className="py-2 px-4 font-medium">Address</th>
-                  <td className="py-2 px-4">
+                  <td className="py-2 px-4 text-justify">
                     Minato-ku, Shibaura 2-14–13, Kase Building161, 5F-508, Tokyo
                     108–0023.
                   </td>
@@ -369,7 +375,7 @@ const About = () => {
                 <tr className="border-b border-gray-700 align-top">
                   <th className="py-2 px-4 font-medium">Business</th>
                   <td className="py-2 px-4 space-y-1">
-                    <ul className="list-disc pl-5">
+                    <ul className="list-disc pl-5 text-justify">
                       <li>IT–Telecom & Cloud</li>
                       <li>LTE, 5G, IoT–RAN & Core Network Consulting</li>
                       <li>IMS, VoLTE and VoNR</li>
@@ -398,47 +404,57 @@ const About = () => {
 
 const dummyContent = [
   {
-    title: "Collaborative Editing",
+    title: "Empowering Telecom Innovation",
     description: (
       <>
         <p>
-          Work together in real time with your team, clients, and stakeholders.
+          Scient Labs is at the forefront of IT–Telecom consulting, offering
+          advanced solutions across LTE, 5G, and Cloud platforms.
         </p>
         <p>
-          See changes as they happen. No more confusion about the latest
-          version.
+          We combine domain expertise with robust engineering capabilities to
+          deliver customized, future-ready solutions for global telecom
+          operators.
         </p>
       </>
     ),
-    badge: "Realtime",
-    image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=3540",
+    badge: "Telecom Expertise",
+    image: towerImg,
   },
   {
-    title: "Version Control Built-In",
-    description: (
-      <>
-        <p>You're always working on the most recent version of your project.</p>
-        <p>Avoid chaos from scattered updates and misalignment.</p>
-      </>
-    ),
-    badge: "Versioning",
-    image:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=3540",
-  },
-  {
-    title: "Launch with Confidence",
+    title: "Cutting-Edge 5G & IoT Services",
     description: (
       <>
         <p>
-          Plan, preview, and publish confidently. Launch smoothly and
-          efficiently.
+          From RAN to Core Networks, we provide consulting across LTE, 5G, and
+          IoT, enabling seamless deployment and optimization of next-gen
+          wireless systems.
+        </p>
+        <p>
+          Our engineers ensure scalability, low-latency, and performance
+          integrity in dynamic telecom environments.
         </p>
       </>
     ),
-    badge: "Launch",
-    image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=3506",
+    badge: "5G & IoT",
+    image: img5G,
+  },
+  {
+    title: "Reliable Testing & Network Intelligence",
+    description: (
+      <>
+        <p>
+          Our testing solutions cover Field Testing, Carrier Validation,
+          Conformance, and RF Optimization—ensuring reliability and efficiency.
+        </p>
+        <p>
+          We also support NWDAF engineering, helping clients gain real-time
+          insights and analytics across their 5G services.
+        </p>
+      </>
+    ),
+    badge: "Testing & Analytics",
+    image: cloud,
   },
 ];
 
