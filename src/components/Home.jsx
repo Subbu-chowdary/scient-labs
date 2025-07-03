@@ -377,16 +377,16 @@ const Home = () => {
     <Section id="home" bgColor="bg-black" className="text-white h-screen">
       {/* Logos Row */}
       <div className="absolute top-0 left-0 w-full px-4 py-4 z-50">
-        <div className="flex items-center justify-between gap-6 sm:gap-10">
+        <div className="flex items-center justify-start gap-4 sm:gap-6">
           <img
             src={logo1}
             alt="Scient Labs Logo"
-            className="h-16 sm:h-20 md:h-16 object-contain"
+            className="h-5 sm:h-6 md:h-14 object-contain"
           />
           <img
             src={etsiLogo}
             alt="ETSI Member Logo"
-            className="h-16 sm:h-20 md:h-16 object-contain"
+            className="h-4 sm:h-12 md:h-10 object-contain"
           />
         </div>
       </div>
