@@ -2,6 +2,7 @@
   "name": "scient-labs-site",
   "version": "1.0.0",
   "main": "index.js",
+  "homepage": "https://subbu-chowdary.github.io/scient-labs-site",
   "scripts": {
     "dev": "vite",
     "start": "npx vite",
