@@ -355,7 +355,7 @@
 
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   motion,
   AnimatePresence,
@@ -367,23 +367,44 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
+  const mouseYRef = useRef(0);
 
-  useEffect(() => {
-    const handleResize = () => window.innerWidth >= 960 && setIsOpen(false);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+  // Detect scroll direction and control visibility
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
       const direction = current - scrollYProgress.getPrevious();
       if (scrollYProgress.get() < 0.05) {
         setVisible(true);
       } else {
-        setVisible(direction < 0);
+        // Only hide if mouse not near top
+        if (mouseYRef.current > 100) {
+          setVisible(direction < 0);
+        }
       }
     }
   });
+
+  // Handle window resize + mouse position at top
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 960) setIsOpen(false);
+    };
+
+    const handleMouseMove = (e) => {
+      mouseYRef.current = e.clientY;
+      if (e.clientY < 100) {
+        setVisible(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   const navItems = [
     { name: "Home", href: "#home" },
@@ -396,8 +417,17 @@ const NavBar = () => {
   const handleScroll = (e, href) => {
     e.preventDefault();
     const element = document.querySelector(href);
+    if (!element) return;
+
     element.scrollIntoView({ behavior: "smooth" });
+
     setIsOpen(false);
+
+    if (href !== "#home") {
+      setTimeout(() => {
+        setVisible(false);
+      }, 800); // wait for scroll animation (~800ms)
+    }
   };
 
   return (
@@ -412,7 +442,7 @@ const NavBar = () => {
         border border-white/20 rounded-full
         shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
         ring-1 ring-white/15 px-8 py-3 items-center justify-center 
-         overflow-hidden"
+        overflow-hidden transition-all duration-300 ease-in-out"
       >
         {/* Shine Overlay */}
         <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">

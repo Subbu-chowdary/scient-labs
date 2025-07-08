@@ -310,10 +310,19 @@ const Portfolio = () => {
       content: (
         <p className="text-lg md:text-xl text-justify text-neutral-600 dark:text-neutral-300">
           Scient Labs becomes an{" "}
-          <span className="text-sky-500 font-medium">ETSI member</span>.
+          <a
+            href="https://www.etsi.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sky-500 font-medium underline"
+          >
+            ETSI member
+          </a>
+          .
         </p>
       ),
     },
+
     {
       title: "2023 October",
       content: (
@@ -331,7 +340,7 @@ const Portfolio = () => {
           for the 5G-enabled EDGE IoT sensor system and environmental monitoring
           solution.{" "}
           <a
-            href="https://dl.acm.org/"
+            href="https://dl.acm.org/doi/10.1145/3670105.3670178"
             target="_blank"
             rel="noopener noreferrer"
             className="text-cyan-400 font-medium underline"
@@ -348,7 +357,15 @@ const Portfolio = () => {
           Our member is one of the speakers for{" "}
           <span className="text-sky-500 font-medium">ETSI</span> Accessibility
           and Interoperability of Emergency Communications and for Answering of
-          Emergency Communications project.
+          Emergency Communications project.{" "}
+          <a
+            href="https://www.etsi.org/events/2412-stf642-webinar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-400 font-medium underline"
+          >
+            View Webinar
+          </a>
         </p>
       ),
     },
@@ -358,12 +375,19 @@ const Portfolio = () => {
         <p className="text-lg md:text-xl text-justify text-neutral-600 dark:text-neutral-300">
           In <span className="text-cyan-400 font-medium">CEATEC</span> Japan
           exhibition event, we delivered research collaboration work with IIT
-          Hyderabad presentation in an online seminar conference.
+          Hyderabad presentation in an online seminar conference.{" "}
+          <a
+            href="https://www.ceatec.com/ja/conference/detail.html?id=2661"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-400 font-medium underline"
+          >
+            View Conference
+          </a>
         </p>
       ),
     },
   ];
-
   return <Timeline data={timelineData} />;
 };
 
