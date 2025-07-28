@@ -311,7 +311,7 @@ const Contact = () => {
             <div className="flex items-start gap-4 text-justify">
               <FaMapMarkerAlt className="text-blue-400 mt-1 min-w-[20px]" />
               <span className="flex-1">
-                Minato-ku Shibaura 2-14-13, Kose Building 161, 5F-508,
+                Minato-ku Shibaura 2-14-13, Kase Building 161, 5F-508,
                 <br />
                 Tokyo 108-0023.
               </span>

@@ -361,7 +361,9 @@ const About = () => {
                   <td className="py-2 px-4">9th July, 2021</td>
                 </tr>
                 <tr className="border-b border-gray-700">
-                  <th className="py-2 px-4 font-medium">Director</th>
+                  <th className="py-2 px-4 font-medium">
+                    Representative Member
+                  </th>
                   <td className="py-2 px-4">Javvaji Nava Krishna Chaitanya</td>
                 </tr>
                 <tr className="border-b border-gray-700">
