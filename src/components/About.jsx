@@ -372,7 +372,7 @@ const About = () => {
                 </tr>
                 <tr className="border-b border-gray-700">
                   <th className="py-2 px-4 font-medium">Bank</th>
-                  <td className="py-2 px-4">MUFG Bank, Ltd. and PayPay Bank</td>
+                  <td className="py-2 px-4">Mitsubishi UFJ Bank, Ltd. and PayPay Bank</td>
                 </tr>
                 <tr className="border-b border-gray-700 align-top">
                   <th className="py-2 px-4 font-medium">Business</th>
