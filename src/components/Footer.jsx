@@ -121,6 +121,26 @@ const Footer = () => {
         <p className="text-sm font-semibold">
           © 2025 Scient Labs. All rights reserved.
         </p>
+        <div className="mt-2 flex items-center justify-center gap-4 text-xs">
+          <a href="/about" className="text-sky-300 hover:text-sky-200">
+            About
+          </a>
+          <a href="/services" className="text-sky-300 hover:text-sky-200">
+            Services
+          </a>
+          <a href="/portfolio" className="text-sky-300 hover:text-sky-200">
+            Portfolio
+          </a>
+          <a href="/contact" className="text-sky-300 hover:text-sky-200">
+            Contact
+          </a>
+          <a href="/privacy-policy" className="text-sky-300 hover:text-sky-200">
+            Privacy Policy
+          </a>
+          <a href="/terms" className="text-sky-300 hover:text-sky-200">
+            Terms
+          </a>
+        </div>
       </div>
     </footer>
   );
